@@ -68,7 +68,7 @@ module.exports = {
   async createReaction(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
-        { _id: req.params._id},
+        { _id: req.params.thoughtId},
         { $addToSet: { reactions: req.body } }, // Assuming the entire reaction object is sent in the body
         { runValidators: true, new: true }
       );
@@ -94,7 +94,7 @@ module.exports = {
         return res.status(404).json({ message: 'No thought found with that ID' });
       }
 
-      res.json(thought);
+      res.json({message: 'reaction removed'});
     } catch (err) {
       res.status(500).json(err);
     }
