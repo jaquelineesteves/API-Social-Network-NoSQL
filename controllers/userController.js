@@ -50,7 +50,7 @@ module.exports = {
   },
   async deleteUser(req, res) {
     try {
-      const userData = await User.findOneAndRemove({ username: req.params.username });
+      const userData = await User.findOneAndDelete({ username: req.params.username });
 
       if (!userData) {
         return res.status(404).json({ message: 'No such user exists' });
@@ -101,7 +101,7 @@ module.exports = {
           .json({ message: 'No user found with that username:(' });
       }
 
-      res.json(user);
+      res.json({message: 'Friend removed'});
     } catch (err) {
       res.status(500).json(err);
     }
