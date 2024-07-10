@@ -13,7 +13,7 @@ module.exports = {
  
   async getOneThought(req, res) {
     try {
-      const thought = await Thought.findOne({ _id: req.params.thoughtId })
+      const thought = await Thought.findOne({ _id: req.params.thoughtId})
 
       if (!thought) {
         return res.status(404).json({ message: 'No thought with that ID' });
@@ -37,7 +37,7 @@ module.exports = {
 
   async deleteThought(req, res) {
     try {
-      const thought = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
+      const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
 
       if (!thought) {
         res.status(404).json({ message: 'No thought with that ID' });
@@ -51,7 +51,7 @@ module.exports = {
   async updateThought(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
-        { _id: req.params.courseId },
+        { _id: req.params.thoughtId },
         { $set: req.body },
         { runValidators: true, new: true }
       );
@@ -68,7 +68,7 @@ module.exports = {
   async createReaction(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
-        { _id: req.params.thoughtId },
+        { _id: req.params._id},
         { $addToSet: { reactions: req.body } }, // Assuming the entire reaction object is sent in the body
         { runValidators: true, new: true }
       );
