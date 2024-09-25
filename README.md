@@ -2,7 +2,15 @@
   ![MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)
   
   ## Description 
-Back-end application using mongoDB and express.js, to create a network application, that insert users, thoughts,reaction of thoughts, and friends to database using CRUD Routes.
+This is a back-end application designed to create a social networking platform where users can share thoughts, react to others' thoughts, and manage friend lists. Built with MongoDB for database storage and Express.js for handling server-side logic. Users can be added, deleted, or updated, while their thoughts, reactions, and friendships are dynamically stored in the database through various API routes.
+
+Key Features:
+
+User Management: Add, update, and delete users.
+Thought Sharing: Post thoughts and allow reactions to those thoughts.
+Friend Connections: Add and remove friends from user profiles.
+MongoDB Integration: NoSQL database for scalable and flexible data storage.
+Express.js Backend: Handles all server-side operations.
 
   ## Table of Contents 
   * [Installation](#installation)
